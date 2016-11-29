@@ -1,49 +1,55 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import '../styles/App.css';
-import { Menu, Icon } from 'antd';
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+import { Row, Col, Menu, Icon, Card } from 'antd';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      current: 'mail'
-    };
-  }
-  handleClick(e) {
-    console.log('click ', e);
-    this.setState({
-      current: e.key
-    });
-  }
+
   render() {
     return (
-      <Menu onClick={this.handleClick}
-            selectedKeys={[this.state.current]}
-            mode="horizontal"
-      >
-        <Menu.Item key="mail">
-          <Icon type="mail" />Navigation One
-        </Menu.Item>
-        <Menu.Item key="app" disabled>
-          <Icon type="appstore" />Navigation Two
-        </Menu.Item>
-        <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
-          <MenuItemGroup title="Item 1">
-            <Menu.Item key="setting:1">Option 1</Menu.Item>
-            <Menu.Item key="setting:2">Option 2</Menu.Item>
-          </MenuItemGroup>
-          <MenuItemGroup title="Item 2">
-            <Menu.Item key="setting:3">Option 3</Menu.Item>
-            <Menu.Item key="setting:4">Option 4</Menu.Item>
-          </MenuItemGroup>
-        </SubMenu>
-        <Menu.Item key="alipay">
-          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
-        </Menu.Item>
-      </Menu>
+      <div>
+        <Menu mode="horizontal" theme="light">
+          <Menu.Item key="engage" style={{fontSize:'20px'}}>
+            EngageFire
+          </Menu.Item>
+          <Menu.Item key="logout" style={{float:'right'}}>
+            <Icon type="logout" />Logout
+          </Menu.Item>
+        </Menu>
+
+        <Row>
+          <Col span={4}>
+            <Menu>
+              <Menu.Item key="dashboard">
+                <Icon type="appstore-o" />Dashboard
+              </Menu.Item>
+              <Menu.Item key="Engage">
+                <Icon type="heart-o" />Engage
+              </Menu.Item>
+              <Menu.Item key="statistics">
+                <Icon type="bar-chart" />Statistics
+              </Menu.Item>
+              <Menu.Item key="installation">
+                <Icon type="info" />Installation
+              </Menu.Item>
+            </Menu>
+          </Col>
+          <Col span={20}>
+            <div style={{ padding: '30px' }}>
+              <Row>
+                <Col span="8">
+                  <Card title="Card title">Card content</Card>
+                </Col>
+                <Col span="8">
+                  <Card title="Card title">Card content</Card>
+                </Col>
+                <Col span="8">
+                  <Card title="Card title">Card content</Card>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
