@@ -23,13 +23,16 @@ class App extends Component {
                 <Icon type="appstore-o"/>Dashboard
               </Menu.Item>
               <Menu.Item key="Engage">
-                <Icon type="heart-o"/>Engage
+                <Icon type="heart-o"/>Engage Stories
               </Menu.Item>
               <Menu.Item key="statistics">
                 <Icon type="bar-chart"/>Statistics
               </Menu.Item>
+              <Menu.Item key="settings">
+                <Icon type="setting"/>Settings
+              </Menu.Item>
               <Menu.Item key="installation">
-                <Icon type="info"/>Installation
+                <Icon type="question"/>How To
               </Menu.Item>
             </Menu>
           </Col>
@@ -37,13 +40,13 @@ class App extends Component {
             <div style={{padding: '30px'}}>
               <Row>
                 <Col span="8">
-                  <Card title="Card title">Card content</Card>
+                  <Card title="Engage Stories">0</Card>
                 </Col>
                 <Col span="8">
-                  <Card title="Card title">Card content</Card>
+                  <Card title="Engage Hits">0</Card>
                 </Col>
                 <Col span="8">
-                  <Card title="Card title">Card content</Card>
+                  <Card title="Engage Actions">0</Card>
                 </Col>
               </Row>
             </div>
