@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <div>
         <Menu mode="horizontal" theme="light">
-          <Menu.Item key="engage" style={{fontSize:'20px'}}>
-            EngageFire
+          <Menu.Item key="engage" style={{fontSize:'17px'}}>
+            Engage Engine
           </Menu.Item>
           <Menu.Item key="logout" style={{float:'right'}}>
             <Icon type="logout" />Logout
