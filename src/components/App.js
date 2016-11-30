@@ -1,58 +1,28 @@
 import React, {Component} from 'react';
 import '../styles/App.css';
-import {Row, Col, Menu, Icon, Card} from 'antd';
+
+import { Router, Route, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import store from '../store';
+
+const history = syncHistoryWithStore(browserHistory, store);
+
+import Login from './Login/Login';
+import Register from './Register/Register';
+import Dashboard from './Dashboard/Dashboard';
+import Engage from './Engage/Engage';
 
 class App extends Component {
 
   render() {
     return (
-      <div>
-        <Menu mode="horizontal" theme="light">
-          <Menu.Item key="engage" style={{fontSize: '17px'}}>
-            Engage Engine
-          </Menu.Item>
-          <Menu.Item key="logout" style={{float: 'right'}}>
-            <Icon type="logout"/>Logout
-          </Menu.Item>
-        </Menu>
-
-        <Row>
-          <Col span={4}>
-            <Menu>
-              <Menu.Item key="dashboard">
-                <Icon type="appstore-o"/>Dashboard
-              </Menu.Item>
-              <Menu.Item key="Engage">
-                <Icon type="heart-o"/>Engage Stories
-              </Menu.Item>
-              <Menu.Item key="statistics">
-                <Icon type="bar-chart"/>Statistics
-              </Menu.Item>
-              <Menu.Item key="settings">
-                <Icon type="setting"/>Settings
-              </Menu.Item>
-              <Menu.Item key="installation">
-                <Icon type="question"/>How To
-              </Menu.Item>
-            </Menu>
-          </Col>
-          <Col span={20}>
-            <div style={{padding: '30px'}}>
-              <Row>
-                <Col span="8">
-                  <Card title="Engage Stories">0</Card>
-                </Col>
-                <Col span="8">
-                  <Card title="Engage Hits">0</Card>
-                </Col>
-                <Col span="8">
-                  <Card title="Engage Actions">0</Card>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-      </div>
+      <Router history={history}>
+        <Route path='login' component={Login} />
+        <Route path='register' component={Register} />
+        <Route path='dashboard' component={Dashboard} />
+        <Route path='engage' component={Engage} />
+        <Route path='editproject/:projectKey' component={Dashboard} />
+      </Router>
     );
   }
 }

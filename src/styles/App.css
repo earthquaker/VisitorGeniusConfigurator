@@ -5,3 +5,16 @@
 .ant-row > div {
   padding: 0 8px;
 }
+
+/* Login */
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+
+/* Register */
+.icp-selector {
+  width: 60px;
+}
