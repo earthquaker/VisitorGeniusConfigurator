@@ -35,13 +35,13 @@ const NormalLoginForm = Form.create()(React.createClass({
         <FormItem>
           {getFieldDecorator('remember', {
             valuePropName: 'checked',
-            initialValue: true,
+            initialValue: true
           })(
             <Checkbox>Remember me</Checkbox>
           )}
           <a className="login-form-forgot">Forgot password</a>
           <Button type="ghost" htmlType="submit" className="login-form-button">
-            Sign in
+            Log in
           </Button>
           Or <a>register now!</a>
         </FormItem>
@@ -57,7 +57,7 @@ class Login extends Component {
         <AppHeader />
         <Row>
           <Col span={6} offset={9}>
-            <Card title="Sign in" style={{marginTop:'20px'}}>
+            <Card title="Log in" style={{marginTop:'20px'}}>
               <NormalLoginForm />
             </Card>
           </Col>

@@ -7,7 +7,7 @@ class Header extends Component {
     return (
         <Menu mode="horizontal" theme="light">
           <Menu.Item key="engage" style={{fontSize: '17px'}}>
-            Engage Engine
+            Engage Layer
           </Menu.Item>
           <Menu.Item key="logout" style={{float: 'right'}}>
             <Icon type="logout"/>Logout
