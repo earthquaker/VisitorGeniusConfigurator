@@ -17,11 +17,11 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <Route path='login' component={Login} />
-        <Route path='register' component={Register} />
-        <Route path='dashboard' component={Dashboard} />
-        <Route path='engage' component={Engage} />
-        <Route path='editproject/:projectKey' component={Dashboard} />
+        <Route path='/' component={Login}/>
+        <Route path='register' component={Register}/>
+        <Route path='dashboard' component={Dashboard}/>
+        <Route path='engage' component={Engage}/>
+        <Route path='editproject/:projectKey' component={Dashboard}/>
       </Router>
     );
   }
