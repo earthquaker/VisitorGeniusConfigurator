@@ -7,7 +7,7 @@ import * as authActions from '../actions/authActions';
 class AppHeader extends Component {
 
   render() {
-    const menuLogout = (
+    const menuLogoutBtn = (
       (this.props.auth.uid ? <Menu.Item key="logout" style={{float: 'right'}}>
         <span onClick={this.props.signOutUser}><Icon type="logout" />Logout</span>
       </Menu.Item> : null)
@@ -18,7 +18,7 @@ class AppHeader extends Component {
           <Menu.Item key="engage" style={{fontSize: '17px'}}>
             Action Layer
           </Menu.Item>
-          {menuLogout}
+          {menuLogoutBtn}
         </Menu>
     );
   }
