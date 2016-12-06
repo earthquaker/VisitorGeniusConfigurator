@@ -19,7 +19,6 @@ export function loginUser(email, password) {
 }
 
 export function signOutUser() {
-  console.log("sighnout")
   return function(dispatch, getState) {
     firebase.auth().signOut().then(function(success){
       dispatch(updateAuthData(success));
@@ -30,9 +29,7 @@ export function signOutUser() {
 export function onAuthStateChanged() {
   return function(dispatch, getState) {
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log(user);
-      //const state = getState();
-      //&& state.routing.locationBeforeTransitions.pathname === "/"
+      dispatch(updateAuthData(user));
       if (user) {
         dispatch(push('/dashboard'));
       } else if (!user) {
