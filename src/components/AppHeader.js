@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import {Menu} from 'antd';
+import {Menu, Icon} from 'antd';
 
-class Header extends Component {
+import { connect } from 'react-redux';
+import * as authActions from '../actions/authActions';
+
+class AppHeader extends Component {
 
   render() {
     return (
@@ -9,12 +12,22 @@ class Header extends Component {
           <Menu.Item key="engage" style={{fontSize: '17px'}}>
             Action Layer
           </Menu.Item>
-          {/*<Menu.Item key="logout" style={{float: 'right'}}>
-            <Icon type="logout"/>Logout
-          </Menu.Item>*/}
+          <Menu.Item key="logout" style={{float: 'right'}}>
+            <span onClick={this.props.signOutUser}><Icon type="logout" />Logout</span>
+          </Menu.Item>
         </Menu>
     );
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    signOutUser: () => dispatch(authActions.signOutUser())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AppHeader);

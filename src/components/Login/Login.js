@@ -1,64 +1,40 @@
 import React, {Component} from 'react';
-import {Row, Col, Form, Icon, Input, Checkbox, Button, Card} from 'antd';
-
+import {Row, Col, Form, Icon, Input, Button, Card} from 'antd';
 const FormItem = Form.Item;
+
+import { connect } from 'react-redux';
+import * as authActions from '../../actions/authActions';
 
 import AppHeader from './../AppHeader';
 
-const NormalLoginForm = Form.create()(React.createClass({
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  },
-  render() {
-    const { getFieldDecorator } = this.props.form;
-    return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
-        <FormItem>
-          {getFieldDecorator('email', {
-            rules: [{ required: true, message: 'Please enter your email' }],
-          })(
-            <Input addonBefore={<Icon type="mail" />} placeholder="Email" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password' }],
-          })(
-            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true
-          })(
-            <Checkbox>Remember me</Checkbox>
-          )}
-          <a className="login-form-forgot">Forgot password</a>
-          <Button type="ghost" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          Or <a>register now!</a>
-        </FormItem>
-      </Form>
-    );
-  },
-}));
-
 class Login extends Component {
+
+  loginUser(e) {
+    e.preventDefault();
+    const email = e.target.querySelector('[name="email"]').value;
+    const password = e.target.querySelector('[name="password"]').value;
+    this.props.loginUser(email, password);
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div>
         <AppHeader />
         <Row>
           <Col span={6} offset={9}>
             <Card title="Log in" style={{marginTop:'20px'}}>
-              <NormalLoginForm />
+              <Form onSubmit={(e)=>this.loginUser(e)} className="login-form">
+                <FormItem>
+                  <Input addonBefore={<Icon type="mail" />} name="email" placeholder="Email" required/>
+                </FormItem>
+                <FormItem>
+                  <Input addonBefore={<Icon type="lock" />} name="password" type="password" placeholder="Password" required/>
+                </FormItem>
+                <Button type="ghost" htmlType="submit" className="login-form-button">
+                  Log in
+                </Button>
+              </Form>
             </Card>
           </Col>
         </Row>
@@ -67,4 +43,14 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    loginUser: (email, password) => dispatch(authActions.loginUser(email, password))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

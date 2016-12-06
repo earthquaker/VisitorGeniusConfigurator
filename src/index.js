@@ -5,6 +5,7 @@ import MyApp from './components/App';
 // Redux
 import store from './store';
 import { Provider } from 'react-redux';
+import * as authActions from './actions/authActions';
 
 // Ant Design
 import { LocaleProvider } from 'antd';
@@ -36,3 +37,5 @@ ReactDOM.render(
     </Provider>,
   document.getElementById('root')
 );
+
+store.dispatch(authActions.onAuthStateChanged());
