@@ -16,14 +16,13 @@ import './styles/index.css';
 import * as firebase from 'firebase';
 
 var config = {
-  apiKey: "AIzaSyCm577yx4uU0TW5g_uFQH3wg_fUjAHUp88",
-  authDomain: "flowerpower-c349a.firebaseapp.com",
-  databaseURL: "https://flowerpower-c349a.firebaseio.com",
-  storageBucket: "flowerpower-c349a.appspot.com",
-  messagingSenderId: "29712322543"
+  apiKey: "AIzaSyBfAEVb03MJaNt5ARYG_TY6lQBunW3Njac",
+  authDomain: "visitorgenius.firebaseapp.com",
+  databaseURL: "https://visitorgenius.firebaseio.com",
+  storageBucket: "visitorgenius.appspot.com",
+  messagingSenderId: "629876563710"
 };
 firebase.initializeApp(config);
-
 
 const App = () => (
   <LocaleProvider locale={enUS}>

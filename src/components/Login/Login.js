@@ -19,15 +19,15 @@ const NormalLoginForm = Form.create()(React.createClass({
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator('email', {
+            rules: [{ required: true, message: 'Please enter your email' }],
           })(
-            <Input addonBefore={<Icon type="user" />} placeholder="Username" />
+            <Input addonBefore={<Icon type="mail" />} placeholder="Email" />
           )}
         </FormItem>
         <FormItem>
           {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
+            rules: [{ required: true, message: 'Please input your Password' }],
           })(
             <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
           )}
