@@ -11,6 +11,8 @@ import Login from './Login/Login';
 import Register from './Register/Register';
 import Dashboard from './Dashboard/Dashboard';
 import Engage from './Engage/Engage';
+import Statistics from './Statistics/Statistics';
+import Settings from './Settings/Settings';
 import Howto from './HowTo/Howto';
 
 class App extends Component {
@@ -22,6 +24,8 @@ class App extends Component {
         <Route path='register' component={Register}/>
         <Route path='dashboard' component={Dashboard}/>
         <Route path='engage' component={Engage}/>
+        <Route path='settings' component={Settings}/>
+        <Route path='statistics' component={Statistics}/>
         <Route path='howto' component={Howto}/>
         <Route path='editproject/:projectKey' component={Dashboard}/>
       </Router>
