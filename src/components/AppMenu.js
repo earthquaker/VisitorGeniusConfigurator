@@ -27,14 +27,9 @@ class AppMenu extends Component {
             <Icon type="setting"/>Settings
           </Link>
         </Menu.Item>
-        <Menu.Item key="installation">
-          <Link to={`installation`}>
-            <Icon type="file"/>Installation
-          </Link>
-        </Menu.Item>
         <Menu.Item key="howto">
           <Link to={`howto`}>
-            <Icon type="question"/>How To
+            <Icon type="file"/>How To
           </Link>
         </Menu.Item>
       </Menu>
